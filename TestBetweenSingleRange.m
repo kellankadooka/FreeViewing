@@ -1,15 +1,15 @@
-function [betweencorr, p, meanvar, dist] = TestBetweenSingleRange(stim, g1, g2, starti,endi, iterations, graph)
+function [betweencorr, p, meanvar, dist, eyesopentogether] = TestBetweenSingleRange(stim, g1, g2, starti,endi, iterations, graph)
 %Simplified version of test between to allow comparison of a single subject
 %to one or many others
-%%
-clear all
-stim = 'stim';
-g1 = 'stim/7_006.csv';
-g2 = '7';
-starti = 1;
-endi = 59992;
-iterations = 1000;
-graph = 1;
+%
+% clear all
+% stim = 'stim';
+% g1 = 'stim/7_006.csv';
+% g2 = '7';
+% starti = 1;
+% endi = 59992;
+% iterations = 1000;
+% graph = 1;
 
 
 subjectfiles = dir(strcat(stim,'/*.csv'));
@@ -51,7 +51,7 @@ g1ypos(g1ypos == 0) = NaN;
 g2xpos = zeros(samples,length(g2files));
 g2ypos = zeros(samples,length(g2files));
 g2alltimes = zeros(samples,length(g2files));
-%%
+%
 for i=1:length(g2files)
 gazedata = csvread(subjectfiles(g2files(i)).name);
 g2xpos(:,i) = gazedata(starti:endi,3);   
@@ -65,8 +65,8 @@ g2ypos(g2ypos == 0) = NaN;
 xypos=[g1xpos g1ypos g2xpos g2ypos];
 index=isnan(mean(xypos,2))==0;
 index = find(index == 1);
-eyesopentogether = (length(index)/length(xypos)) %Gives time both eyes open (ratio)
-%%
+eyesopentogether = (length(index)/length(xypos)); %Gives time both eyes open (ratio)
+%
 x1 = g1xpos(index,:);
 y1 = g1ypos(index,:);
 times1 = g1alltimes(index, :);
@@ -88,7 +88,7 @@ temp=corrcoef(tempMean,y1);
 corry2=temp(2,1);
 
 betweencorr = (corrx2 + corry2)./2;
-%%
+%
 %VARIANCE
 varx = var(x1);
 vary = var(y1);
