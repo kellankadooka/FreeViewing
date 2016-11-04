@@ -3,8 +3,10 @@ function [corr, var, p, eyesopen, available] = TestWithin(stim, group, starti, e
 ppts = csvread(strcat(num2str(stim),'_inclusion.csv'));
 
 id = ppts(:,1);
+%include = ppts(:,3);
+%inc_id = id(include == 1);
 group_num = ppts(:,2);
-
+%child_id = inc_id(group_num==group);
 child_id = id(group_num == group);
 
 for i = 1:numel(child_id)
