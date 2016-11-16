@@ -1,5 +1,5 @@
 clear all 
-stim = 2;
+stim = 7;
 ppts = csvread(strcat(num2str(stim),'_inclusion.csv'));
 
 id = ppts(:,1);
