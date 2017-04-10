@@ -1,5 +1,9 @@
-function [corr, var, p, eyesopen, available] = TestWithin(stim, group, starti, endi)
+%function [corr, var, p, eyesopen, available] = TestWithin(stim, group, starti, endi)
 
+stim = 7;
+group = 7;
+starti = 1;
+endi = 59992;
 ppts = csvread(strcat(num2str(stim),'_inclusion.csv'));
 
 id = ppts(:,1);

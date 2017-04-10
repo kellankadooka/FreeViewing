@@ -1,4 +1,4 @@
-function [betweencorr, p, meanvar, eyesopentogether, g1_available] = TestBetweenSingleRange(g1, g2, starti,endi, iterations, graph)
+function [betweencorr, p, meanvar, betweencovar, eyesopentogether, g1_available] = TestBetweenSingleRange(g1, g2, starti,endi, iterations, graph)
 %Simplified version of test between to allow comparison of a single subject
 %to one or many others
 % %%
@@ -31,7 +31,7 @@ g2files = []; %Single subject
 %     end
 % end
 
-gazedata = csvread(g1);
+gazedata = importfile(g1);
 g1xpos = gazedata(starti:endi,3);   
 g1ypos = gazedata(starti:endi,4);
 g1alltimes = gazedata(starti:endi,6);
@@ -46,7 +46,7 @@ index=isnan(mean(xypos,2))==0;
 index = find(index == 1);
 g1_available = (length(index)/length(xypos));
 
-gazedata = csvread(g2);
+gazedata = importfile1(g2);
 g2xpos = gazedata(starti:endi,3);   
 g2ypos = gazedata(starti:endi,4);
 g2alltimes = gazedata(starti:endi,6);
@@ -77,6 +77,15 @@ temp=corrcoef(y2,y1);
 corry2=temp(2,1);
 
 betweencorr = (corrx2 + corry2)./2;
+
+%COVARIANCE
+tempor =  cov(x2,x1);
+covarx2 = tempor(2,1);
+
+tempor = cov(y2,y1);
+covary2 = tempor(2,1);
+
+betweencovar = (covarx2 + covary2)./2;
 %
 %VARIANCE
 varx = var(x1);
