@@ -1,6 +1,3 @@
-#for each video, if consecutive length == 20 of -9999 == true (print 'video' False)
-
-#testpage
 setwd("~/Desktop/CLEANED_DATA/datacleaner") #set wd
 
 rm(list=ls()) #Clear Enivronement 
@@ -89,43 +86,43 @@ for (folder in folders) {
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file = (paste("1_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, ) #Filename in the form "Video number_ participant ID.csv" ex 1_001.csv
+  write.table( df_eachvideo, file = (paste("1_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE, ) #Filename in the form "Video number_ participant ID.csv" ex 1_001.csv
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/2 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("2_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("2_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE, )
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/3 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("3_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("3_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE, )
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/4 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("4_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("4_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE,)
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/5 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("5_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("5_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE, )
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/6 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("6_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("6_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, quote = FALSE, )
   
   df_eachvideo <- read.csv((paste("~/Desktop/CLEANED_DATA/datacleaner/",folder,"/7 .csv", sep = "")), header=FALSE)
   value <- df_eachvideo$V6[1]
   df_eachvideo$V6 <- df_eachvideo$V6 - value
   df_eachvideo$V1 <- NULL
-  write.table( df_eachvideo, file =  (paste("7_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE, )
+  write.table( df_eachvideo, file =  (paste("7_",parnum,".csv", sep ='')), sep = ",", col.names = FALSE,quote = FALSE, )
   #
   
 }
