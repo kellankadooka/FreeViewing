@@ -1,9 +1,9 @@
 clear all 
 stim = 7;
-ppts = csvread(strcat(num2str(stim),'_inclusion.csv'));
+ppts = csvread(strcat('Exclusion.csv'));
 
 id = ppts(:,1);
-group = ppts(:,6);
+group = ppts(:,20);
 
 adult_id = id(group == 1);
 child_id = id(group == 2);

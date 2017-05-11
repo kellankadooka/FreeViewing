@@ -1,3 +1,4 @@
+#Takes all files in the directory (all cleaned files) and determines whether there is X amount of consecutive seconds of missing data
 setwd("~/Desktop/CLEANED_DATA/cleandataholder")
 rm(list=ls()) #Clear Enivronement
 
