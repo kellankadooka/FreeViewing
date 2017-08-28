@@ -50,17 +50,17 @@ for (folder in folders) {
   #########
   df_clean <- df_clean[order(df_clean$identifier),] # order df by video identifier
   
-  colnames(df_clean)[colnames(df_clean) == 'RECORDING_SESSION_LABEL'] <- 'ID' #rename row
+  colnames(df_clean)[colnames(df_clean) == 'RECORDING_SESSION_LABEL'] <- 'ID' #rename col
   
-  colnames(df_clean)[colnames(df_clean) == 'RIGHT_GAZE_X'] <- 'xpos' #rename row
+  colnames(df_clean)[colnames(df_clean) == 'RIGHT_GAZE_X'] <- 'xpos' #rename col
   
-  colnames(df_clean)[colnames(df_clean) == 'RIGHT_GAZE_Y'] <- 'ypos' #rename row
+  colnames(df_clean)[colnames(df_clean) == 'RIGHT_GAZE_Y'] <- 'ypos' #rename col
   
-  colnames(df_clean)[colnames(df_clean) == 'SAMPLE_MESSAGE'] <- 'vf' #rename row
+  colnames(df_clean)[colnames(df_clean) == 'SAMPLE_MESSAGE'] <- 'vf' #rename col
   
   df_clean$X <- NULL #remove index column
   df_clean$VIDEO_NAME <- NULL #remove video name column
-  df_clean$ID <- gsub("fv0", "", df_clean$ID) #replace participant number with integer by replacing fv0
+  df_clean$ID <- gsub("fv", "", df_clean$ID) #replace participant number with integer by replacing fv0
   df_clean$ID. <- NULL # remove ID column (will be replaced with )
   is.na(df_clean$xpos) <- df_clean$xpos < 0
   is.na(df_clean$xpos) <- df_clean$xpos > 1280

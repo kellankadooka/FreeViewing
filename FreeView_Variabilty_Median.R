@@ -13,7 +13,7 @@ sheet$V3[sheet$V3 >= 1280] = NA
 sheet$V4[sheet$V4 <= 0] = NA
 sheet$V4[sheet$V4 >= 1024] = NA
 
- notnasum <- function(y) {    #function to figure out how many data points are available for each frame
+notnasum <- function(y) {    #function to figure out how many data points are available for each frame
     sum(!is.na(y))
 }  
         
